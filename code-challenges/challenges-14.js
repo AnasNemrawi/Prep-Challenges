@@ -66,21 +66,29 @@ const LastWord_2 = (str) => {
 //
 
 const replaceWords = (str) => {
-    const words = str.split(' ');
-    const replacedWords = words.map((word) => {
-        switch (word) {
-            case 'I':
-                return 'We';
-            case 'am':
-                return 'are';
-            case 'was':
-                return 'were';
-            default:
-                return word;
-        }
-    });
-    return replacedWords.join(' ');
+    const words = str.split(' '); // Split the string into an array of words
+
+    // Replace "I" with "We"
+    const iIndex = words.indexOf('I');
+    if (iIndex !== -1) {
+        words.splice(iIndex, 1, 'We');
+    }
+
+    // Replace "am" with "are"
+    const amIndex = words.indexOf('am');
+    if (amIndex !== -1) {
+        words.splice(amIndex, 1, 'are');
+    }
+
+    // Replace "was" with "were"
+    const wasIndex = words.indexOf('was');
+    if (wasIndex !== -1) {
+        words.splice(wasIndex, 1, 'were');
+    }
+
+    return words.join(' '); // Join the array back into a string
 };
+
 
 // -------------------------------------------------------------------------------------------------------
 
